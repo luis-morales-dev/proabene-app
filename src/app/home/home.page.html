@@ -1,0 +1,110 @@
+<ion-header class="proa-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button class="menu-btn" routerDirection="forward">
+        <ion-icon name="menu-outline" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <div class="header-logo" slot="end">
+      <img src="assets/img/PROA_logo.png" alt="PROA Logo" />
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="proa-content">
+
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-badge">PROA BENE</div>
+    <h1 class="hero-title">En la Bene<br><span>inicia el cambio</span></h1>
+    <p class="hero-subtitle">
+      PROA constituye una estrategia institucional estructurada y coordinada para el uso responsable de antimicrobianos.
+    </p>
+  </div>
+
+  <!-- Search Bar -->
+  <div class="search-wrapper">
+    <ion-searchbar
+      placeholder="Buscar guías, glosario, herramientas..."
+      class="proa-searchbar"
+      animated="true"
+    ></ion-searchbar>
+  </div>
+
+  <!-- Navigation Cards Grid -->
+  <div class="section-label">Secciones principales</div>
+
+  <div class="cards-grid">
+
+    <ion-card class="nav-card card-guias" routerLink="/">
+      <div class="card-icon-wrap">
+        <ion-icon name="book-outline"></ion-icon>
+      </div>
+      <ion-card-header>
+        <ion-card-title>Guías</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Protocolos y guías clínicas de referencia.
+      </ion-card-content>
+      <div class="card-arrow">
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+      </div>
+    </ion-card>
+
+    <ion-card class="nav-card card-glosario" routerLink="/">
+      <div class="card-icon-wrap">
+        <ion-icon name="list-outline"></ion-icon>
+      </div>
+      <ion-card-header>
+        <ion-card-title>Glosario</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Términos y definiciones médicas esenciales.
+      </ion-card-content>
+      <div class="card-arrow">
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+      </div>
+    </ion-card>
+
+    <ion-card class="nav-card card-herramientas" routerLink="/">
+      <div class="card-icon-wrap">
+        <ion-icon name="construct-outline"></ion-icon>
+      </div>
+      <ion-card-header>
+        <ion-card-title>Herramientas</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Calculadoras y recursos de apoyo clínico.
+      </ion-card-content>
+      <div class="card-arrow">
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+      </div>
+    </ion-card>
+
+    <ion-card class="nav-card card-conside" routerLink="/">
+      <div class="card-icon-wrap">
+        <ion-icon name="shield-checkmark-outline"></ion-icon>
+      </div>
+      <ion-card-header>
+        <ion-card-title>Consejos</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Consideraciones y recomendaciones claves.
+      </ion-card-content>
+      <div class="card-arrow">
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+      </div>
+    </ion-card>
+
+  </div>
+
+</ion-content>
+
+<ion-footer class="proa-footer">
+  <ion-toolbar>
+    <div class="footer-content">
+      <p>© 2026 PROA-BENE. Todos los derechos reservados.</p>
+      <p class="footer-sub">Desarrollado por Hospital Sociedad Española de Beneficiencia de Puebla</p>
+    </div>
+  </ion-toolbar>
+</ion-footer>

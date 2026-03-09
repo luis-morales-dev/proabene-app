@@ -1,0 +1,250 @@
+// ─── Header ───────────────────────────────────────────────────────────
+.proa-header ion-toolbar {
+  --background: var(--proa-primary);
+  --border-color: var(--proa-border);
+  padding: 4px 8px;
+
+  .menu-btn {
+    --color: var(--proa-primary);
+    --padding-start: 8px;
+    --padding-end: 8px;
+    font-size: 22px;
+  }
+
+  .header-logo {
+    padding-right: 16px;
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 32px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+  }
+}
+
+// ─── Content ──────────────────────────────────────────────────────────
+.proa-content {
+  --background: var(--proa-bg);
+}
+
+ion-content, ion-card, ion-title, p, h1, h2, h3 {
+  font-family: var(--proa-font);
+}
+
+// ─── Hero Section ─────────────────────────────────────────────────────
+.hero-section {
+  background: linear-gradient(145deg, var(--proa-primary) 0%, var(--proa-primary-light) 100%);
+  padding: 32px 24px 40px;
+  position: relative;
+  overflow: hidden;
+
+  // Decorative circle
+  &::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    top: -60px;
+    right: -60px;
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+
+  .hero-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.25;
+    margin: 0 0 12px;
+    letter-spacing: -0.3px;
+
+    span {
+      color: var(--proa-accent);
+    }
+  }
+
+  .hero-subtitle {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 320px;
+  }
+}
+
+// ─── Search ───────────────────────────────────────────────────────────
+.search-wrapper {
+  padding: 0 16px;
+  margin-top: -20px;
+  position: relative;
+  z-index: 10;
+
+  .proa-searchbar {
+    //--background: #ffffff;
+    --border-radius: var(--proa-radius);
+    --box-shadow: var(--proa-shadow-md);
+    --placeholder-color: var(--proa-text-muted);
+    --color: var(--proa-text);
+    --icon-color: var(--proa-primary);
+    padding: 0;
+  }
+}
+
+// ─── Section Label ────────────────────────────────────────────────────
+.section-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--proa-text-muted);
+  padding: 20px 20px 10px;
+}
+
+// ─── Cards Grid ───────────────────────────────────────────────────────
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 0 16px 32px;
+}
+
+// ─── Nav Card Base ────────────────────────────────────────────────────
+.nav-card {
+  margin: 0;
+  background-color: var(--proa-card-bg);
+  border-radius: var(--proa-radius);
+  box-shadow: var(--proa-shadow-sm);
+  border: 1px solid var(--proa-border);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  cursor: pointer;
+
+  &:active {
+    transform: scale(0.97);
+    box-shadow: var(--proa-shadow-sm);
+  }
+
+  // Accent stripe on top
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+  }
+
+  .card-icon-wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--proa-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 14px 14px 0;
+    font-size: 20px;
+    transition: transform 0.2s ease;
+  }
+
+  ion-card-header {
+    padding: 10px 14px 4px;
+
+    ion-card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--proa-text);
+      letter-spacing: -0.1px;
+    }
+  }
+
+  ion-card-content {
+    font-size: 12px;
+    color: var(--proa-text-muted);
+    line-height: 1.5;
+    padding: 0 14px 36px;
+  }
+
+  .card-arrow {
+    position: absolute;
+    bottom: 10px;
+    right: 12px;
+    font-size: 16px;
+    color: var(--proa-text-muted);
+    opacity: 0.5;
+  }
+}
+
+// ─── Card Color Variants ──────────────────────────────────────────────
+.card-guias {
+  &::before { background: var(--proa-primary); }
+  .card-icon-wrap {
+    background: rgba(10, 92, 138, 0.09);
+    color: var(--proa-primary);
+  }
+}
+
+.card-glosario {
+  &::before { background: var(--proa-accent); }
+  .card-icon-wrap {
+    background: var(--proa-accent-soft);
+    color: var(--proa-accent);
+  }
+}
+
+.card-herramientas {
+  &::before { background: #E67E22; }
+  .card-icon-wrap {
+    background: rgba(230, 126, 34, 0.09);
+    color: #E67E22;
+  }
+}
+
+.card-conside {
+  &::before { background: #8E44AD; }
+  .card-icon-wrap {
+    background: rgba(142, 68, 173, 0.09);
+    color: #8E44AD;
+  }
+}
+
+// ─── Footer ───────────────────────────────────────────────────────────
+.proa-footer ion-toolbar {
+  --background: #ffffff;
+  --border-color: var(--proa-border);
+
+  .footer-content {
+    text-align: center;
+    padding: 10px 16px;
+
+    p {
+      margin: 0;
+      font-size: 11px;
+      color: var(--proa-text-muted);
+      line-height: 1.6;
+    }
+
+    .footer-sub {
+      font-size: 10px;
+      opacity: 0.7;
+      margin-top: 2px;
+    }
+  }
+}
