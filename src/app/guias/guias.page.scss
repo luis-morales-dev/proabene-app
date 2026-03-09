@@ -1,0 +1,269 @@
+// ─── Header ───────────────────────────────────────────────────────────
+.proa-header ion-toolbar {
+  --background: var(--proa-primary);
+  --border-color: var(--proa-border);
+  padding: 4px 8px;
+
+  .menu-btn {
+    --color: var(--proa-primary);
+    --padding-start: 8px;
+    --padding-end: 8px;
+    font-size: 22px;
+  }
+
+  .header-logo {
+    padding-right: 16px;
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 32px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  ion-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #ffffff;
+      text-align: center;
+      font-family: var(--proa-font);
+    }
+}
+
+
+
+.segments-toolbar {
+  --background: #ffffff;
+  --border-color: var(--proa-border);
+  padding-bottom: 2px;
+
+  .proa-segment {
+    --background: transparent;
+    padding: 0 8px 6px;
+
+    ion-segment-button {
+      --color:               var(--proa-text-muted);
+      --color-checked:       var(--proa-primary);
+      --indicator-color:     var(--proa-primary);
+      --border-radius:       0;
+      --indicator-height:    2px;
+      --padding-start:       12px;
+      --padding-end:         12px;
+      min-width: auto;
+
+      ion-label {
+        font-size: 13px;
+        font-weight: 600;
+        white-space: nowrap;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+// ─── Content ──────────────────────────────────────────────────────────
+.guias-content {
+  --background: var(--proa-bg);
+}
+
+.guias-list {
+  padding: 12px 16px 32px;
+}
+
+// ─── Results Info ─────────────────────────────────────────────────────
+.results-info {
+  padding: 4px 2px 12px;
+  font-size: 12.5px;
+
+  .results-count {
+    font-weight: 700;
+    color: var(--proa-primary);
+  }
+
+  .results-category {
+    color: var(--proa-text-muted);
+  }
+}
+
+// ─── Guia Card ────────────────────────────────────────────────────────
+.guia-card {
+  margin: 0 0 10px;
+  border-radius: var(--proa-radius);
+  box-shadow: var(--proa-shadow-sm);
+  border: 1px solid var(--proa-border);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+
+  &.expanded {
+    box-shadow: var(--proa-shadow-md);
+    border-color: rgba(10, 92, 138, 0.2);
+  }
+}
+
+// ─── Card Header (always visible) ────────────────────────────────────
+.guia-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  cursor: pointer;
+  background: #ffffff;
+  gap: 12px;
+
+  &:active {
+    background: rgba(10, 92, 138, 0.03);
+  }
+
+  .guia-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .guia-index {
+    min-width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(10, 92, 138, 0.08);
+    color: var(--proa-primary);
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .guia-title-wrap {
+    flex: 1;
+    min-width: 0;
+
+    .guia-procedimiento {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--proa-text);
+      margin: 0 0 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .guia-antibiotico-preview {
+      font-size: 12px;
+      color: var(--proa-text-muted);
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      ion-icon {
+        font-size: 12px;
+        color: var(--proa-accent);
+      }
+    }
+  }
+
+  .guia-chevron {
+    color: var(--proa-text-muted);
+    font-size: 18px;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+}
+
+// ─── Detail Divider ───────────────────────────────────────────────────
+.detail-divider {
+  height: 1px;
+  background: var(--proa-border);
+  margin: 0 16px;
+}
+
+// ─── Detail Grid ──────────────────────────────────────────────────────
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--proa-border);
+  margin: 0;
+  border-top: none;
+}
+
+.detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px;
+  background: #ffffff;
+
+  &.detail-item-full {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--proa-border);
+  }
+
+  .detail-icon-wrap {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--proa-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+
+    &.detail-blue   { background: rgba(10,92,138,0.09);  color: var(--proa-primary); }
+    &.detail-teal   { background: var(--proa-accent-soft); color: var(--proa-accent); }
+    &.detail-orange { background: rgba(230,126,34,0.09); color: #E67E22; }
+    &.detail-purple { background: rgba(142,68,173,0.09); color: #8E44AD; }
+    &.detail-green  { background: rgba(39,174,96,0.09);  color: #27AE60; }
+  }
+
+  .detail-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+
+    .detail-label {
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--proa-text-muted);
+    }
+
+    .detail-value {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--proa-text);
+      line-height: 1.4;
+    }
+  }
+}
+
+// ─── Footer ───────────────────────────────────────────────────────────
+.proa-footer ion-toolbar {
+  --background: #ffffff;
+  --border-color: var(--proa-border);
+
+  .footer-content {
+    text-align: center;
+    padding: 10px 16px;
+
+    p {
+      margin: 0;
+      font-size: 11px;
+      color: var(--proa-text-muted);
+      line-height: 1.6;
+    }
+
+    .footer-sub {
+      font-size: 10px;
+      opacity: 0.7;
+      margin-top: 2px;
+    }
+  }
+}

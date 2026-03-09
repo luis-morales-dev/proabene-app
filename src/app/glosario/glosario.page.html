@@ -1,0 +1,95 @@
+<ion-header class="proa-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-buttons class="backbtn" routerLink="/home" routerDirection="back">
+        <img src="../../assets/img/back-dark.svg" />
+      </ion-buttons>
+    </ion-buttons>
+    <div class="header-logo" slot="end">
+      <img src="assets/img/PROA_logo.png" alt="PROA Logo" />
+    </div>
+  </ion-toolbar>
+  <ion-toolbar class="proa-header-title">
+    <ion-title>Glosario Médico</ion-title>
+  </ion-toolbar>
+
+  <!-- Barra de búsqueda -->
+  <ion-toolbar class="search-toolbar">
+    <ion-searchbar
+      [(ngModel)]="searchTerm"
+      (ionInput)="onSearch($event)"
+      placeholder="Buscar término..."
+      class="proa-searchbar"
+      animated="true"
+    ></ion-searchbar>
+  </ion-toolbar>
+
+  <!-- Índice A-Z -->
+  <ion-toolbar class="az-toolbar" *ngIf="!searchTerm">
+    <div class="az-index">
+      <span
+        *ngFor="let letter of alphabet"
+        class="az-letter"
+        [class.active]="activeLetter === letter"
+        [class.disabled]="!hasTermsForLetter(letter)"
+        (click)="scrollToLetter(letter)"
+      >{{ letter }}</span>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="proa-content glosario-content" #content>
+
+  <!-- Estado vacío -->
+  <div class="empty-state" *ngIf="getFilteredGroups().length === 0">
+    <ion-icon name="search-outline"></ion-icon>
+    <p>No se encontraron términos para <strong>"{{ searchTerm }}"</strong></p>
+  </div>
+
+  <!-- Lista agrupada por letra -->
+  <div class="glosario-list" *ngIf="getFilteredGroups().length > 0">
+
+    <div class="results-info" *ngIf="searchTerm">
+      <span class="results-count">{{ getTotalFiltered() }} resultado(s)</span>
+      <span class="results-category"> para "{{ searchTerm }}"</span>
+    </div>
+
+    <div
+      class="letter-group"
+      *ngFor="let group of getFilteredGroups()"
+      [id]="'letter-' + group.letter"
+    >
+      <!-- Encabezado de letra -->
+      <div class="letter-header">
+        <span class="letter-badge">{{ group.letter }}</span>
+        <span class="letter-count">{{ group.terms.length }} término(s)</span>
+      </div>
+
+      <!-- Términos del grupo -->
+      <ion-card class="terms-card">
+        <div
+          class="term-item"
+          *ngFor="let term of group.terms; let last = last"
+          [class.term-last]="last"
+        >
+          <div class="term-content">
+            <p class="term-name">{{ term.nombre }}</p>
+            <p class="term-definition">{{ term.definicion }}</p>
+          </div>
+          <div class="term-divider" *ngIf="!last"></div>
+        </div>
+      </ion-card>
+
+    </div>
+  </div>
+
+</ion-content>
+
+<ion-footer class="proa-footer">
+  <ion-toolbar>
+    <div class="footer-content">
+      <p>© 2026 PROA-BENE. Todos los derechos reservados.</p>
+      <p class="footer-sub">Desarrollado por Hospital Sociedad Española de Beneficiencia de Puebla</p>
+    </div>
+  </ion-toolbar>
+</ion-footer>

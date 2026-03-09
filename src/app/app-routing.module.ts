@@ -11,6 +11,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'guias',
+    loadChildren: () => import('./guias/guias.module').then( m => m.GuiasPageModule)
+  },
+  {
+    path: 'glosario',
+    loadChildren: () => import('./glosario/glosario.module').then( m => m.GlosarioPageModule)
+  },
 ];
 
 @NgModule({

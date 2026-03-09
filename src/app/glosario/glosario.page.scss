@@ -1,0 +1,244 @@
+// ─── Header ───────────────────────────────────────────────────────────
+.proa-header {
+
+    .header-logo {
+    padding-right: 16px;
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 32px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  
+    
+  ion-toolbar:first-child {
+    --background: var(--proa-primary);
+    --border-color: transparent;
+  }
+
+  .proa-header-title {
+    background-color: var(--proa-primary);
+    ion-title {
+      font-size: 17px;
+      font-weight: 700;
+      //color: #ffffff;
+      text-align: center;
+      font-family: var(--proa-font);
+    }
+
+}
+}
+
+.search-toolbar {
+  --background: #ffffff;
+  --border-color: transparent;
+  padding: 0 8px 4px;
+
+  .proa-searchbar {
+    --background:        var(--proa-bg);
+    --border-radius:     var(--proa-radius-sm);
+    --box-shadow:        none;
+    --placeholder-color: var(--proa-text-muted);
+    --color:             var(--proa-text);
+    --icon-color:        var(--proa-primary);
+    padding: 0;
+  }
+}
+
+// ─── Índice A-Z ───────────────────────────────────────────────────────
+.az-toolbar {
+  --background: #ffffff;
+  --border-color: var(--proa-border);
+  padding-bottom: 6px;
+}
+
+.az-index {
+  display: flex;
+  overflow-x: auto;
+  padding: 4px 12px 0;
+  gap: 2px;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar { display: none; }
+
+  .az-letter {
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--proa-primary);
+    transition: background 0.15s ease, color 0.15s ease;
+    flex-shrink: 0;
+
+    &:active {
+      background: rgba(10, 92, 138, 0.1);
+    }
+
+    &.active {
+      background: var(--proa-primary);
+      color: #ffffff;
+    }
+
+    &.disabled {
+      color: var(--proa-border);
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+}
+
+// ─── Content ──────────────────────────────────────────────────────────
+.glosario-content {
+  --background: var(--proa-bg);
+}
+
+.glosario-list {
+  padding: 12px 16px 40px;
+}
+
+// ─── Results info ─────────────────────────────────────────────────────
+.results-info {
+  padding: 0 2px 10px;
+  font-size: 12.5px;
+
+  .results-count {
+    font-weight: 700;
+    color: var(--proa-primary);
+  }
+
+  .results-category {
+    color: var(--proa-text-muted);
+  }
+}
+
+// ─── Letter Group ─────────────────────────────────────────────────────
+.letter-group {
+  margin-bottom: 20px;
+}
+
+.letter-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  padding: 0 2px;
+
+  .letter-badge {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: var(--proa-primary);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .letter-count {
+    font-size: 11.5px;
+    color: var(--proa-text-muted);
+    font-weight: 500;
+  }
+}
+
+// ─── Terms Card ───────────────────────────────────────────────────────
+.terms-card {
+  margin: 0;
+  border-radius: var(--proa-radius);
+  box-shadow: var(--proa-shadow-sm);
+  border: 1px solid var(--proa-border);
+  overflow: hidden;
+  padding: 0;
+}
+
+// ─── Term Item ────────────────────────────────────────────────────────
+.term-item {
+  padding: 0;
+
+  .term-content {
+    padding: 14px 16px;
+
+    .term-name {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--proa-primary);
+      margin: 0 0 4px;
+    }
+
+    .term-definition {
+      font-size: 13px;
+      color: var(--proa-text-muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+  }
+
+  .term-divider {
+    height: 1px;
+    background: var(--proa-border);
+    margin: 0 16px;
+  }
+}
+
+// ─── Empty State ──────────────────────────────────────────────────────
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 32px;
+  text-align: center;
+  gap: 12px;
+
+  ion-icon {
+    font-size: 48px;
+    color: var(--proa-border);
+  }
+
+  p {
+    font-size: 14px;
+    color: var(--proa-text-muted);
+    margin: 0;
+    line-height: 1.5;
+
+    strong {
+      color: var(--proa-text);
+    }
+  }
+}
+
+// ─── Footer ───────────────────────────────────────────────────────────
+.proa-footer ion-toolbar {
+  --background: #ffffff;
+  --border-color: var(--proa-border);
+
+  .footer-content {
+    text-align: center;
+    padding: 10px 16px;
+
+    p {
+      margin: 0;
+      font-size: 11px;
+      color: var(--proa-text-muted);
+      line-height: 1.6;
+    }
+
+    .footer-sub {
+      font-size: 10px;
+      opacity: 0.7;
+      margin-top: 2px;
+    }
+  }
+}

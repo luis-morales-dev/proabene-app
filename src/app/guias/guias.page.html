@@ -1,0 +1,141 @@
+<ion-header class="proa-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-buttons class="backbtn" routerLink="/home" routerDirection="back">
+        <img src="../../assets/img/back-dark.svg" />
+      </ion-buttons>
+    </ion-buttons>
+    <div class="header-logo" slot="end">
+      <img src="assets/img/PROA_logo.png" alt="PROA Logo" />
+    </div>
+  </ion-toolbar>
+  <ion-toolbar class="proa-header">
+    <ion-title>Guías de Medicamentos</ion-title>
+  </ion-toolbar>
+  
+<!-- Segmentos de tipo de infección -->
+  <ion-toolbar class="segments-toolbar">
+    <ion-segment [(ngModel)]="selectedSegment" (ionChange)="onSegmentChange($event)" scrollable="true" class="proa-segment">
+      <ion-segment-button value="respiratoria">
+        <ion-label>Respiratoria</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="urinaria">
+        <ion-label>Urinaria</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="gastrointestinal">
+        <ion-label>Gastrointestinal</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="piel">
+        <ion-label>Piel y Tejidos</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="sistemica">
+        <ion-label>Sistémica</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="proa-content guias-content">
+
+  <div class="guias-list">
+
+    <!-- Contador de resultados -->
+    <div class="results-info">
+      <span class="results-count">{{ getGuias().length }} guías</span>
+      <span class="results-category">· {{ getCategoryLabel() }}</span>
+    </div>
+
+    <!-- Tarjetas expandibles -->
+    <ion-card
+      class="guia-card"
+      *ngFor="let guia of getGuias(); let i = index"
+      [class.expanded]="expandedIndex === i"
+    >
+      <!-- Cabecera siempre visible (toca para expandir) -->
+      <div class="guia-header" (click)="toggleExpand(i)">
+        <div class="guia-header-left">
+          <div class="guia-index">{{ i + 1 }}</div>
+          <div class="guia-title-wrap">
+            <p class="guia-procedimiento">{{ guia.procedimiento }}</p>
+            <p class="guia-antibiotico-preview">
+              <ion-icon name="medical-outline"></ion-icon>
+              {{ guia.antibiotico }}
+            </p>
+          </div>
+        </div>
+        <div class="guia-chevron">
+          <ion-icon [name]="expandedIndex === i ? 'chevron-up-outline' : 'chevron-down-outline'"></ion-icon>
+        </div>
+      </div>
+
+      <!-- Detalle expandible -->
+      <div class="guia-detail" *ngIf="expandedIndex === i">
+        <div class="detail-divider"></div>
+        <div class="detail-grid">
+
+          <div class="detail-item">
+            <div class="detail-icon-wrap detail-blue">
+              <ion-icon name="medical-outline"></ion-icon>
+            </div>
+            <div class="detail-text">
+              <span class="detail-label">Antibiótico</span>
+              <span class="detail-value">{{ guia.antibiotico }}</span>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-icon-wrap detail-teal">
+              <ion-icon name="flask-outline"></ion-icon>
+            </div>
+            <div class="detail-text">
+              <span class="detail-label">Dosis</span>
+              <span class="detail-value">{{ guia.dosis }}</span>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-icon-wrap detail-orange">
+              <ion-icon name="navigate-outline"></ion-icon>
+            </div>
+            <div class="detail-text">
+              <span class="detail-label">Vía</span>
+              <span class="detail-value">{{ guia.via }}</span>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-icon-wrap detail-purple">
+              <ion-icon name="time-outline"></ion-icon>
+            </div>
+            <div class="detail-text">
+              <span class="detail-label">Administración</span>
+              <span class="detail-value">{{ guia.administracion }}</span>
+            </div>
+          </div>
+
+          <div class="detail-item detail-item-full">
+            <div class="detail-icon-wrap detail-green">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+            <div class="detail-text">
+              <span class="detail-label">Duración</span>
+              <span class="detail-value">{{ guia.duracion }}</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </ion-card>
+
+  </div>
+
+</ion-content>
+
+<ion-footer class="proa-footer">
+  <ion-toolbar>
+    <div class="footer-content">
+      <p>© 2026 PROA-BENE. Todos los derechos reservados.</p>
+      <p class="footer-sub">Desarrollado por Hospital Sociedad Española de Beneficiencia de Puebla</p>
+    </div>
+  </ion-toolbar>
+</ion-footer>
